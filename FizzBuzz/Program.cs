@@ -1,6 +1,3 @@
-﻿for (var i = 1; i <= 100; i++)
-{
-    Console.WriteLine(FizzBuzz.FizzBuzz.GetResult(i));
-}
+﻿FizzBuzz.FizzBuzz.PrintNumbers(100);
 
 Console.ReadKey();
