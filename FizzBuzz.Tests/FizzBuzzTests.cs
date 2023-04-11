@@ -5,31 +5,21 @@ namespace FizzBuzz.Tests
 {
     public class FizzBuzzTests
     {
-        [TestCase(3)]
-        [TestCase(6)]
-        [TestCase(9)]
-        [TestCase(12)]
-        public void Given_MultipleOfThree_When_Processed_Then_ReturnFizz(int number)
-        {
-            FizzBuzz.GetResult(number).Should().Be("Fizz");
-        }
+        [TestCase(3, "Fizz")]
+        [TestCase(5, "Buzz")]
+        [TestCase(6, "Fizz")]
+        [TestCase(9, "Fizz")]
+        [TestCase(10, "Buzz")]
+        [TestCase(12, "Fizz")]
+        [TestCase(15, "FizzBuzz")]
+        [TestCase(20, "Buzz")]
+        [TestCase(25, "Buzz")]
+        [TestCase(30, "FizzBuzz")]
+        [TestCase(45, "FizzBuzz")]
 
-        [TestCase(5)]
-        [TestCase(10)]
-        [TestCase(20)]
-        [TestCase(25)]
-        public void Given_MultipleOfFive_When_Processed_Then_ReturnBuzz(int number)
+        public void Given_MultipleOfThreeOrFive_When_Processed_Then_ExpectedWordReturned(int number, string result)
         {
-            FizzBuzz.GetResult(number).Should().Be("Buzz");
-        }
-
-
-        [TestCase(15)]
-        [TestCase(30)]
-        [TestCase(45)]
-        public void Given_MultipleOfThreeAndFive_When_Processed_Then_ReturnFizzBuzz(int number)
-        {
-            FizzBuzz.GetResult(number).Should().Be("FizzBuzz");
+            FizzBuzz.GetResult(number).Should().Be(result);
         }
 
         [TestCase(1)]
@@ -38,7 +28,7 @@ namespace FizzBuzz.Tests
         [TestCase(7)]
         [TestCase(23)]
         [TestCase(41)]
-        public void Given_NotMultipleOfThreeAndFive_When_Processed_Then_ReturnNumber(int number)
+        public void Given_NotMultipleOfThreeOrFive_When_Processed_Then_ReturnNumber(int number)
         {
             FizzBuzz.GetResult(number).Should().Be(number.ToString());
         }
